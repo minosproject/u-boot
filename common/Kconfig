@@ -227,7 +227,7 @@ config USE_BOOTCOMMAND
 config BOOTCOMMAND
 	string "bootcmd value"
 	depends on USE_BOOTCOMMAND
-	default "run distro_bootcmd" if DISTRO_DEFAULTS
+	default "fatload mmc 0:1 0x37200000 zephyr.bin; fatload mmc 0:1 0x30008000 Image; fatload mmc 0:1 0x33e00000 vm1_dtb.img; fatload mmc 0:1 0x34000000 vm1_ramdisk.img; fatload mmc 0:1 0x37408000 minos.bin; fatload mmc 0:1 0x38000000 minos.dtb; fatload mmc 0:1 0x00008000 Image; fatload mmc 0:1 0x03e00000 vm0_dtb.img; booti 0x37408000 - 0x38000000" if DISTRO_DEFAULTS
 	help
 	  This is the string of commands that will be used as bootcmd and if
 	  AUTOBOOT is set, automatically run.
