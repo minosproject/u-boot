@@ -377,7 +377,7 @@ static int virtio_mmio_probe(struct udevice *udev)
 	if (priv->version == 1)
 		writel(PAGE_SIZE, priv->base + VIRTIO_MMIO_GUEST_PAGE_SIZE);
 
-	debug("(%s): device (%d) vendor (%08x) version (%d)\n", udev->name,
+	printf("(%s): device (%d) vendor (%08x) version (%d)\n", udev->name,
 	      uc_priv->device, uc_priv->vendor, priv->version);
 
 	return 0;

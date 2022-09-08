@@ -227,7 +227,7 @@ config USE_BOOTCOMMAND
 config BOOTCOMMAND
 	string "bootcmd value"
 	depends on USE_BOOTCOMMAND
-	default "run distro_bootcmd" if DISTRO_DEFAULTS
+	default "fatload virtio 0:1 0x40000000 kernel.bin;fatload virtio 0:1 0x44000000 ramdisk.bin;fatload virtio 0:1 0x43e00000 qemu-arm64.dtb;booti 0x40000000 - 0x43e00000" if DISTRO_DEFAULTS
 	help
 	  This is the string of commands that will be used as bootcmd and if
 	  AUTOBOOT is set, automatically run.
